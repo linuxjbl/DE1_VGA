@@ -27,6 +27,7 @@ module top_de1_vga(
       input              CLOCK_50,
 
       ///////// DRAM /////////
+/*
       output      [12:0] DRAM_ADDR,
       output      [1:0]  DRAM_BA,
       output             DRAM_CAS_N,
@@ -38,6 +39,7 @@ module top_de1_vga(
       output             DRAM_RAS_N,
       output             DRAM_UDQM,
       output             DRAM_WE_N,
+*/
 
       ///////// FAN /////////
       output             FAN_CTRL,
@@ -186,7 +188,8 @@ PwmCtrl
 	.HEX3   (HEX3),
 	.HEX4   (HEX4),
 	.HEX5   (HEX5),
-	.PUSH   (KEY),
+	.PUSH   (KEY)
+/*
     .DRAM_ADDR  (DRAM_ADDR),   // new_sdram_controller_0_wire.addr
     .DRAM_BA    (DRAM_BA),     //                            .ba
 	.DRAM_CAS_N (DRAM_CAS_N),  //                            .cas_n
@@ -196,6 +199,7 @@ PwmCtrl
 	.DRAM_DQM   ({DRAM_UDQM, DRAM_LDQM}),    //              .dqm
 	.DRAM_RAS_N (DRAM_RAS_N),  //                            .ras_n
 	.DRAM_WE_N  (DRAM_WE_N)    //   
+*/
  ); 
 
 

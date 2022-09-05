@@ -8,7 +8,8 @@ module PwmCtrl (
 	HEX3,
 	HEX4,
 	HEX5,
-	PUSH,
+	PUSH
+/*
     DRAM_ADDR,   // new_sdram_controller_0_wire.addr
     DRAM_BA,     //                            .ba
 	DRAM_CAS_N,  //                            .cas_n
@@ -18,6 +19,7 @@ module PwmCtrl (
 	DRAM_DQM,    //                            .dqm
 	DRAM_RAS_N,  //                            .ras_n
 	DRAM_WE_N    //    
+*/
  ); 
 
 input		CLK, RST_N;
@@ -29,6 +31,7 @@ output		[6:0] HEX3;
 output		[6:0] HEX4;
 output		[6:0] HEX5;
 input		[3:0] PUSH;
+/*
 output      [12:0]  DRAM_ADDR;   // new_sdram_controller_0_wire.addr
 output      [1:0]   DRAM_BA;     //                            .ba
 output	            DRAM_CAS_N;  //                            .cas_n
@@ -38,6 +41,7 @@ inout	    [15:0]  DRAM_DQ;     //                            .dq
 output	    [1:0]   DRAM_DQM;    //                            .dqm
 output	            DRAM_RAS_N;  //                            .ras_n
 output	            DRAM_WE_N;    //    
+*/
 
 reg [27:0]	counter0;
 wire 		counter0_clr, counter0_dec;
@@ -238,8 +242,31 @@ assign counter7_clr = (counter7 >= Period7-1) ? 1'b1 : 1'b0;
 assign counter7_dec = (counter7 < Decode7) ? 1'b1 : 1'b0;
 
 
+assign Period0 = 28'h3000000;
+assign Decode0 = 28'h1800000;
+assign Period1 = 28'h3000000;
+assign Decode1 = 28'h1800000;
+assign Period2 = 28'h3000000;
+assign Decode2 = 28'h1800000;
+assign Period3 = 28'h3000000;
+assign Decode3 = 28'h1800000;
+assign Period4 = 28'h3000000;
+assign Decode4 = 28'h1800000;
+assign Period5 = 28'h3000000;
+assign Decode5 = 28'h1800000;
+assign Period6 = 28'h3000000;
+assign Decode6 = 28'h1800000;
+assign Period7 = 28'h3000000;
+assign Decode7 = 28'h1800000;
 
+assign HEX0 = 7'h01;
+assign HEX1 = 7'h02;
+assign HEX2 = 7'h04;
+assign HEX3 = 7'h08;
+assign HEX4 = 7'h10;
+assign HEX5 = 7'h5a;
 
+/*
     nios2e u0 (
         .clk_clk                            (CLK),  
         .reset_reset_n                      (RST_N),  
@@ -278,5 +305,6 @@ assign counter7_dec = (counter7 < Decode7) ? 1'b1 : 1'b0;
  
  
     );
+*/
 
 endmodule
